@@ -7,7 +7,6 @@ import requests.RegisterUserRequest;
 import requests.UpdateUserInfoRequest;
 
 import static io.restassured.RestAssured.given;
-import static org.apache.http.HttpStatus.SC_OK;
 import static reststeps.Constants.BASE_URL;
 import static reststeps.Handlers.*;
 
@@ -65,6 +64,24 @@ public class SendRequest {
                         .header("Content-type", "application/json")
                         .when()
                         .get(BASE_URL + HANDLER_GET_INGREDIENTS_INFO);
+    }
+
+    public static Response sendRequestGetUserOrders(String token) {
+        return
+                given()
+                        .header("Content-type", "application/json")
+                        .header("authorization", token)
+                        .when()
+                        .get(BASE_URL + HANDLER_GET_USER_ORDERS);
+    }
+
+    public static Response sendRequestGetInformationAboutAllOrders(String token) {
+        return
+                given()
+                        .header("Content-type", "application/json")
+                        .header("authorization", token)
+                        .when()
+                        .get(BASE_URL + HANDLER_GET_ALL_ORDERS);
     }
 
 }

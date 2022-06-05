@@ -2,7 +2,6 @@ package OrderCreation;
 
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import requests.CreateOrderRequest;
@@ -100,30 +99,6 @@ public class CreateOrderTest {
                 WRONG_INGREDIENTS_MSG);
     }
 
-
-    public String getRandomBunId(List<IngredientInfo> list) {
-        String bunId = null;
-        for (IngredientInfo ingredientInfo : list) {
-            if (ingredientInfo.getType().equals("bun")) {
-                bunId = ingredientInfo.get_id();
-                break;
-            }
-        }
-        Assert.assertNotNull("List of ingredients not contain buns", bunId);
-        return bunId;
-    }
-
-    public String getRandomFillingId(List<IngredientInfo> list) {
-        String fillingId = null;
-        for (IngredientInfo ingredientInfo : list) {
-            if (ingredientInfo.getType().equals("main")) {
-                fillingId = ingredientInfo.get_id();
-                break;
-            }
-        }
-        Assert.assertNotNull("List of ingredients not contain fillings", fillingId);
-        return fillingId;
-    }
 
 
 }

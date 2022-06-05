@@ -1,8 +1,11 @@
 package reststeps;
 
 import io.restassured.response.Response;
+import org.junit.Assert;
+import requests.CreateOrderRequest;
 import requests.LoginRequest;
 import requests.RegisterUserRequest;
+import responses.CreateOrderResponse;
 import responses.GetListOfIngredients;
 import responses.IngredientInfo;
 import responses.LoginResponse;
@@ -41,7 +44,7 @@ public class UserSteps {
                 newUserData.get("name"));
 
         Response response = sendRequestRegisterNewUser(registerUserRequest);
-        assert(response.getStatusCode() == SC_OK);
+        assert (response.getStatusCode() == SC_OK);
         return registerUserRequest;
     }
 
@@ -57,5 +60,43 @@ public class UserSteps {
 
         GetListOfIngredients parserResponse = response.as(GetListOfIngredients.class);
         return parserResponse.getData();
+    }
+
+    public static String getRandomBunId(List<IngredientInfo> list) {
+        String bunId = null;
+        for (IngredientInfo ingredientInfo : list) {
+            if (ingredientInfo.getType().equals("bun")) {
+                bunId = ingredientInfo.get_id();
+                break;
+            }
+        }
+        Assert.assertNotNull("List of ingredients not contain buns", bunId);
+        return bunId;
+    }
+
+    public static String getRandomFillingId(List<IngredientInfo> list) {
+        String fillingId = null;
+        for (IngredientInfo ingredientInfo : list) {
+            if (ingredientInfo.getType().equals("main")) {
+                fillingId = ingredientInfo.get_id();
+                break;
+            }
+        }
+        Assert.assertNotNull("List of ingredients not contain fillings", fillingId);
+        return fillingId;
+    }
+
+    public static Response createNewOrderRaw(List<IngredientInfo> accessibleIngredients, String token) {
+        CreateOrderRequest createOrderRequest = new CreateOrderRequest(
+                List.of(
+                        getRandomBunId(accessibleIngredients),
+                        getRandomFillingId(accessibleIngredients)));
+        return sendRequestCreateOrder(createOrderRequest, token);
+    }
+
+    public static CreateOrderResponse createNewOrder(List<IngredientInfo> accessibleIngredients, String token) {
+        Response createOrderResponse = createNewOrderRaw(accessibleIngredients, token);
+        assert (createOrderResponse.getStatusCode() == SC_OK);
+        return createOrderResponse.as(CreateOrderResponse.class);
     }
 }
