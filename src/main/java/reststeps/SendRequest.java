@@ -4,7 +4,7 @@ import io.restassured.response.Response;
 import requests.CreateOrderRequest;
 import requests.LoginRequest;
 import requests.RegisterUserRequest;
-import requests.UpdateUserInfoRequest;
+import requests.GetUpdateRemoveUserInfoRequest;
 
 import static io.restassured.RestAssured.given;
 import static reststeps.Constants.BASE_URL;
@@ -36,7 +36,7 @@ public class SendRequest {
                         .post(BASE_URL + HANDLER_POST_LOGIN);
     }
 
-    public static Response sendRequestUpdateUserInfo(UpdateUserInfoRequest userData, String token) {
+    public static Response sendRequestUpdateUserInfo(GetUpdateRemoveUserInfoRequest userData, String token) {
         return
                 given()
                         .header("Content-type", "application/json")
@@ -45,6 +45,15 @@ public class SendRequest {
                         .body(userData)
                         .when()
                         .patch(BASE_URL + HANDLER_PATCH_USER_INFO);
+    }
+
+    public static Response sendRequestDeleteUser(String token) {
+        return
+                given()
+                        .header("Content-type", "application/json")
+                        .header("authorization", token)
+                        .when()
+                        .delete(BASE_URL + HANDLER_DELETE_USER);
     }
 
     public static Response sendRequestCreateOrder(CreateOrderRequest orderData, String token) {

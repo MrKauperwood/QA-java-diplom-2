@@ -16,4 +16,6 @@ public final class Handlers {
     public static final String HANDLER_GET_ALL_ORDERS = "/api/orders/all";
 
     public static final String HANDLER_PATCH_USER_INFO = HANDLER_GET_USER_INFO;
+
+    public static final String HANDLER_DELETE_USER = HANDLER_GET_USER_INFO;
 }

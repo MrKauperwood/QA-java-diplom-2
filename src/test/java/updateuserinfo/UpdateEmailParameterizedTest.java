@@ -1,13 +1,14 @@
 package updateuserinfo;
 
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import requests.LoginRequest;
 import requests.RegisterUserRequest;
-import requests.UpdateUserInfoRequest;
+import requests.GetUpdateRemoveUserInfoRequest;
 import responses.LoginResponse;
 
 import java.util.List;
@@ -16,6 +17,7 @@ import static io.restassured.RestAssured.baseURI;
 import static org.apache.http.HttpStatus.SC_FORBIDDEN;
 import static reststeps.Constants.*;
 import static reststeps.SendRequest.*;
+import static reststeps.UserSteps.deleteUser;
 import static reststeps.UserSteps.registerNewUser;
 import static reststeps.Utils.*;
 
@@ -28,6 +30,7 @@ public class UpdateEmailParameterizedTest {
 
     private String email;
     private List<Object> expectedResult;
+    private String token;
 
     public UpdateEmailParameterizedTest(String email, List<Object> expectedResult) {
         this.email = email;
@@ -37,6 +40,14 @@ public class UpdateEmailParameterizedTest {
     @Before
     public void setUp() {
         baseURI = "https://stellarburgers.nomoreparties.site";
+        token = null;
+    }
+
+    @After
+    public void setDown() {
+        if (token != null) {
+            deleteUser(token);
+        }
     }
 
     @Parameterized.Parameters(name = "Test data: {0}")
@@ -55,11 +66,12 @@ public class UpdateEmailParameterizedTest {
         LoginRequest loginRequest = new LoginRequest(registeredUser.getEmail(), registeredUser.getPassword());
         Response loginResponse = sendRequestLoginUser(loginRequest);
         LoginResponse parsedLoginResponse = loginResponse.as(LoginResponse.class);
-        UpdateUserInfoRequest updateUserInfoRequest =
-                new UpdateUserInfoRequest(email, null);
+        token = parsedLoginResponse.getAccessToken();
+        GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
+                new GetUpdateRemoveUserInfoRequest(email, null);
 
         Response updateInfoResponse =
-                sendRequestUpdateUserInfo(updateUserInfoRequest, parsedLoginResponse.getAccessToken());
+                sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, parsedLoginResponse.getAccessToken());
         checkStatusCodeAndResponseForFailedUpdateUserInfoRequest(
                 updateInfoResponse,
                 (int) expectedResult.get(0),

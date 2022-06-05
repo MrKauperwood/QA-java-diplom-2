@@ -1,6 +1,6 @@
 package responses;
 
-import requests.UpdateUserInfoRequest;
+import requests.GetUpdateRemoveUserInfoRequest;
 
 /**
  * Author: Alexey Bondarenko
@@ -9,9 +9,9 @@ import requests.UpdateUserInfoRequest;
 public class UpdateUserInfoResponse {
 
     private Boolean success;
-    private UpdateUserInfoRequest user;
+    private GetUpdateRemoveUserInfoRequest user;
 
-    public UpdateUserInfoResponse(Boolean success, UpdateUserInfoRequest user) {
+    public UpdateUserInfoResponse(Boolean success, GetUpdateRemoveUserInfoRequest user) {
         this.success = success;
         this.user = user;
     }
@@ -24,11 +24,11 @@ public class UpdateUserInfoResponse {
         this.success = success;
     }
 
-    public UpdateUserInfoRequest getUser() {
+    public GetUpdateRemoveUserInfoRequest getUser() {
         return user;
     }
 
-    public void setUser(UpdateUserInfoRequest user) {
+    public void setUser(GetUpdateRemoveUserInfoRequest user) {
         this.user = user;
     }
 }

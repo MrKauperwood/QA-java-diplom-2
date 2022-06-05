@@ -3,17 +3,16 @@ package reststeps;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import requests.CreateOrderRequest;
+import requests.GetUpdateRemoveUserInfoRequest;
 import requests.LoginRequest;
 import requests.RegisterUserRequest;
-import responses.CreateOrderResponse;
-import responses.GetListOfIngredients;
-import responses.IngredientInfo;
-import responses.LoginResponse;
+import responses.*;
 
 import java.util.HashMap;
 import java.util.List;
 
 import static org.apache.commons.lang3.RandomStringUtils.*;
+import static org.apache.http.HttpStatus.SC_ACCEPTED;
 import static org.apache.http.HttpStatus.SC_OK;
 import static reststeps.SendRequest.*;
 
@@ -98,5 +97,10 @@ public class UserSteps {
         Response createOrderResponse = createNewOrderRaw(accessibleIngredients, token);
         assert (createOrderResponse.getStatusCode() == SC_OK);
         return createOrderResponse.as(CreateOrderResponse.class);
+    }
+
+    public static void deleteUser(String token) {
+        Response createOrderResponse = sendRequestDeleteUser(token);
+        assert (createOrderResponse.getStatusCode() == SC_ACCEPTED);
     }
 }

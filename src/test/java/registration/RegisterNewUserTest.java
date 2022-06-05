@@ -2,6 +2,7 @@ package registration;
 
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import requests.RegisterUserRequest;
@@ -12,8 +13,7 @@ import static io.restassured.RestAssured.*;
 import static org.apache.http.HttpStatus.SC_FORBIDDEN;
 import static reststeps.Constants.USER_ALREADY_EXISTS_MSG;
 import static reststeps.SendRequest.sendRequestRegisterNewUser;
-import static reststeps.UserSteps.generateDataForNewUser;
-import static reststeps.UserSteps.registerNewUser;
+import static reststeps.UserSteps.*;
 import static reststeps.Utils.checkStatusCodeAndResponseForFailedRegisterRequest;
 import static reststeps.Utils.checkStatusCodeAndResponseForSuccessfulRegisterRequest;
 

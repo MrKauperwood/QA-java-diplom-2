@@ -2,11 +2,12 @@ package updateuserinfo;
 
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import requests.LoginRequest;
 import requests.RegisterUserRequest;
-import requests.UpdateUserInfoRequest;
+import requests.GetUpdateRemoveUserInfoRequest;
 import responses.LoginResponse;
 
 import java.util.Locale;
@@ -18,6 +19,7 @@ import static reststeps.Constants.CHANGE_TO_THE_SAME_EMAIL_MSG;
 import static reststeps.Constants.SHOULD_BE_AUTHORISED_MSG;
 import static reststeps.SendRequest.sendRequestLoginUser;
 import static reststeps.SendRequest.sendRequestUpdateUserInfo;
+import static reststeps.UserSteps.deleteUser;
 import static reststeps.UserSteps.registerNewUser;
 import static reststeps.Utils.*;
 
@@ -27,9 +29,19 @@ import static reststeps.Utils.*;
  */
 public class ChangeUserInfoTest {
 
+    private String token;
+
     @Before
     public void setUp() {
         baseURI = "https://stellarburgers.nomoreparties.site";
+        token = null;
+    }
+
+    @After
+    public void setDown() {
+        if (token != null) {
+            deleteUser(token);
+        }
     }
 
     @Test
@@ -41,12 +53,13 @@ public class ChangeUserInfoTest {
         Response loginResponse = sendRequestLoginUser(loginRequest);
 
         LoginResponse parsedLoginResponse = loginResponse.as(LoginResponse.class);
+        token = parsedLoginResponse.getAccessToken();
 
-        UpdateUserInfoRequest updateUserInfoRequest =
-                new UpdateUserInfoRequest("new" + parsedLoginResponse.getUser().getEmail(), null);
+        GetUpdateRemoveUserInfoRequest UpdateUserInfoRequest =
+                new GetUpdateRemoveUserInfoRequest("new" + parsedLoginResponse.getUser().getEmail(), null);
 
         Response updateInfoResponse =
-                sendRequestUpdateUserInfo(updateUserInfoRequest, parsedLoginResponse.getAccessToken());
+                sendRequestUpdateUserInfo(UpdateUserInfoRequest, parsedLoginResponse.getAccessToken());
         checkStatusCodeAndResponseForSuccessfulUpdateUserInfoRequest(
                 updateInfoResponse,
                 "new" + parsedLoginResponse.getUser().getEmail(),
@@ -62,12 +75,13 @@ public class ChangeUserInfoTest {
         Response loginResponse = sendRequestLoginUser(loginRequest);
 
         LoginResponse parsedLoginResponse = loginResponse.as(LoginResponse.class);
+        token = parsedLoginResponse.getAccessToken();
 
-        UpdateUserInfoRequest updateUserInfoRequest =
-                new UpdateUserInfoRequest(null, "new" + parsedLoginResponse.getUser().getName());
+        GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
+                new GetUpdateRemoveUserInfoRequest(null, "new" + parsedLoginResponse.getUser().getName());
 
         Response updateInfoResponse =
-                sendRequestUpdateUserInfo(updateUserInfoRequest, parsedLoginResponse.getAccessToken());
+                sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, parsedLoginResponse.getAccessToken());
 
         checkStatusCodeAndResponseForSuccessfulUpdateUserInfoRequest(
                 updateInfoResponse,
@@ -84,12 +98,13 @@ public class ChangeUserInfoTest {
         Response loginResponse = sendRequestLoginUser(loginRequest);
 
         LoginResponse parsedLoginResponse = loginResponse.as(LoginResponse.class);
+        token = parsedLoginResponse.getAccessToken();
 
-        UpdateUserInfoRequest updateUserInfoRequest =
-                new UpdateUserInfoRequest(parsedLoginResponse.getUser().getEmail(), null);
+        GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
+                new GetUpdateRemoveUserInfoRequest(parsedLoginResponse.getUser().getEmail(), null);
 
         Response updateInfoResponse =
-                sendRequestUpdateUserInfo(updateUserInfoRequest, parsedLoginResponse.getAccessToken());
+                sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, parsedLoginResponse.getAccessToken());
 
         checkStatusCodeAndResponseForFailedUpdateUserInfoRequest(
                 updateInfoResponse,
@@ -106,12 +121,13 @@ public class ChangeUserInfoTest {
         Response loginResponse = sendRequestLoginUser(loginRequest);
 
         LoginResponse parsedLoginResponse = loginResponse.as(LoginResponse.class);
+        token = parsedLoginResponse.getAccessToken();
 
-        UpdateUserInfoRequest updateUserInfoRequest =
-                new UpdateUserInfoRequest(null, parsedLoginResponse.getUser().getName());
+        GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
+                new GetUpdateRemoveUserInfoRequest(null, parsedLoginResponse.getUser().getName());
 
         Response updateInfoResponse =
-                sendRequestUpdateUserInfo(updateUserInfoRequest, parsedLoginResponse.getAccessToken());
+                sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, parsedLoginResponse.getAccessToken());
 
         checkStatusCodeAndResponseForSuccessfulUpdateUserInfoRequest(
                 updateInfoResponse,
@@ -125,11 +141,11 @@ public class ChangeUserInfoTest {
     public void checkSC401AndResponseAfterFailedUpdatingEmailWithoutAuthorization() {
         RegisterUserRequest registeredUser = registerNewUser();
 
-        UpdateUserInfoRequest updateUserInfoRequest =
-                new UpdateUserInfoRequest("new" + registeredUser.getEmail().toLowerCase(Locale.ROOT), null);
+        GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
+                new GetUpdateRemoveUserInfoRequest("new" + registeredUser.getEmail().toLowerCase(Locale.ROOT), null);
 
         Response updateInfoResponse =
-                sendRequestUpdateUserInfo(updateUserInfoRequest, "");
+                sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, "");
 
         checkStatusCodeAndResponseForFailedUpdateUserInfoRequest(
                 updateInfoResponse,
@@ -142,11 +158,11 @@ public class ChangeUserInfoTest {
     public void checkSC401AndResponseAfterFailedUpdatingNameWithoutAuthorization() {
         RegisterUserRequest registeredUser = registerNewUser();
 
-        UpdateUserInfoRequest updateUserInfoRequest =
-                new UpdateUserInfoRequest(null, "new" + registeredUser.getName());
+        GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
+                new GetUpdateRemoveUserInfoRequest(null, "new" + registeredUser.getName());
 
         Response updateInfoResponse =
-                sendRequestUpdateUserInfo(updateUserInfoRequest, "");
+                sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, "");
 
         checkStatusCodeAndResponseForFailedUpdateUserInfoRequest(
                 updateInfoResponse,

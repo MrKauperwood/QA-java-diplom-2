@@ -2,6 +2,7 @@ package OrderCreation;
 
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import requests.CreateOrderRequest;
@@ -27,18 +28,28 @@ public class CreateOrderTest {
 
     private RegisterUserRequest registeredUser;
     private List<IngredientInfo> accessibleIngredients;
+    private String token;
 
     @Before
     public void setUp() {
         baseURI = "https://stellarburgers.nomoreparties.site";
         registeredUser = registerNewUser();
         accessibleIngredients = getListOsIngredients();
+        token = null;
+    }
+
+    @After
+    public void setDown() {
+        if (token != null) {
+            deleteUser(token);
+        }
     }
 
     @Test
     @DisplayName("Check successful order creation")
     public void checkSuccessfulOrderCreation() {
         LoginResponse parsedLoginResponse = loginUnderUser(registeredUser);
+        token = parsedLoginResponse.getAccessToken();
 
         CreateOrderRequest createOrderRequest = new CreateOrderRequest(
                 List.of(
@@ -72,6 +83,7 @@ public class CreateOrderTest {
     @DisplayName("Check failed order creation without ingredients")
     public void checkFailedOrderCreationWithoutIngredients() {
         LoginResponse parsedLoginResponse = loginUnderUser(registeredUser);
+        token = parsedLoginResponse.getAccessToken();
 
         CreateOrderRequest createOrderRequest = new CreateOrderRequest(List.of());
 
@@ -87,6 +99,7 @@ public class CreateOrderTest {
     @DisplayName("Check failed order creation with non-existent ingredient id")
     public void checkFailedOrderCreationWithNonExistentIngredientId() {
         LoginResponse parsedLoginResponse = loginUnderUser(registeredUser);
+        token = parsedLoginResponse.getAccessToken();
 
         CreateOrderRequest createOrderRequest = new CreateOrderRequest(
                 List.of(nonExistingIngredient));
@@ -98,7 +111,6 @@ public class CreateOrderTest {
                 SC_BAD_REQUEST,
                 WRONG_INGREDIENTS_MSG);
     }
-
 
 
 }

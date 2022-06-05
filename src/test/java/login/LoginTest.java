@@ -2,16 +2,19 @@ package login;
 
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import requests.LoginRequest;
 import requests.RegisterUserRequest;
+import responses.LoginResponse;
 
 import static io.restassured.RestAssured.baseURI;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
 import static reststeps.Constants.INCORRECT_EMAIL_OR_PASSWORD;
 import static reststeps.SendRequest.sendRequestLoginUser;
+import static reststeps.UserSteps.deleteUser;
 import static reststeps.UserSteps.registerNewUser;
 import static reststeps.Utils.checkStatusCodeAndResponseForFailedRegisterRequest;
 import static reststeps.Utils.checkStatusCodeAndResponseForSuccessfulLoginRequest;
@@ -22,9 +25,19 @@ import static reststeps.Utils.checkStatusCodeAndResponseForSuccessfulLoginReques
  */
 public class LoginTest {
 
+    private String token;
+
     @Before
     public void setUp() {
         baseURI = "https://stellarburgers.nomoreparties.site";
+        token = null;
+    }
+
+    @After
+    public void setDown() {
+        if (token != null) {
+            deleteUser(token);
+        }
     }
 
     @Test
@@ -38,6 +51,7 @@ public class LoginTest {
                 response,
                 registeredUser.getEmail(),
                 registeredUser.getName());
+        token = response.as(LoginResponse.class).getAccessToken();
     }
 
     @Test
@@ -57,7 +71,7 @@ public class LoginTest {
     @DisplayName("Check SC 401 and response after login with incorrect email")
     public void checkSC401AndResponseAfterLoginWithIncorrectEmail() {
         RegisterUserRequest registeredUser = registerNewUser();
-        LoginRequest loginRequest = new LoginRequest(randomAlphabetic(7)+"@gmail.com", registeredUser.getPassword());
+        LoginRequest loginRequest = new LoginRequest(randomAlphabetic(7) + "@gmail.com", registeredUser.getPassword());
         Response response = sendRequestLoginUser(loginRequest);
 
         checkStatusCodeAndResponseForFailedRegisterRequest(

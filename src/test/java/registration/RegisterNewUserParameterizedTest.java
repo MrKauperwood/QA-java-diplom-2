@@ -11,10 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import static io.restassured.RestAssured.baseURI;
-import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
-import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 import static org.apache.http.HttpStatus.*;
-import static org.junit.Assert.assertEquals;
 import static reststeps.Constants.INCORRECT_EMAIL;
 import static reststeps.Constants.REQUIRED_FIELDS_ARE_EMPTY_MSG;
 import static reststeps.SendRequest.sendRequestRegisterNewUser;
