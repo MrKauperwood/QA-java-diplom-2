@@ -1,7 +1,6 @@
 package reststeps;
 
 import io.restassured.response.Response;
-import org.apache.http.HttpStatus;
 import org.junit.Assert;
 import responses.*;
 
@@ -22,7 +21,7 @@ public class Utils {
         Assert.assertTrue(INTERNAL_SERVER_ERROR_MSG, response.getStatusCode() < SC_INTERNAL_SERVER_ERROR);
         Assert.assertEquals(expectedStatus, response.getStatusCode());
 
-        AuthorizationAndRegistrationUserFailedResponse parsedResponse = response.as(AuthorizationAndRegistrationUserFailedResponse.class);
+        FailedResponse parsedResponse = response.as(FailedResponse.class);
         Assert.assertEquals(false, parsedResponse.getSuccess());
         Assert.assertEquals(expectedMessage, parsedResponse.getMessage());
     }
@@ -32,7 +31,7 @@ public class Utils {
 
         Assert.assertEquals("SC should be 200", SC_OK, response.getStatusCode());
 
-        AuthorizationAndRegistrationUserSuccessResponse parsedResponse = response.as(AuthorizationAndRegistrationUserSuccessResponse.class);
+        AuthorizationAndRegistrationResponse parsedResponse = response.as(AuthorizationAndRegistrationResponse.class);
         Assert.assertEquals(true, parsedResponse.getSuccess());
         Assert.assertTrue(parsedResponse.getAccessToken().startsWith("Bearer "));
         Assert.assertFalse("Refresh Token shouldn't be empty", parsedResponse.getRefreshToken().isEmpty());
@@ -69,7 +68,28 @@ public class Utils {
 
         Assert.assertEquals(String.format("SC should be %s", statusCode), statusCode, response.getStatusCode());
 
-        UpdateUserInfoFailedResponse parsedResponse = response.as(UpdateUserInfoFailedResponse.class);
+        FailedResponse parsedResponse = response.as(FailedResponse.class);
+        Assert.assertEquals(false, parsedResponse.getSuccess());
+        Assert.assertEquals(expectedMessage, parsedResponse.getMessage());
+    }
+
+    public static void checkStatusCodeAndResponseForSuccessfulOrderCreationRequest(
+            Response response, String name) {
+
+        Assert.assertEquals("SC should be 200", SC_OK, response.getStatusCode());
+
+        CreateOrderResponse parsedResponse = response.as(CreateOrderResponse.class);
+        Assert.assertEquals(true, parsedResponse.getSuccess());
+        Assert.assertEquals(name, parsedResponse.getName());
+        Assert.assertNotNull(parsedResponse.getOrder().getNumber());
+    }
+
+    public static void checkStatusCodeAndResponseForFailedOrderCreationRequest(
+            Response response, int statusCode, String expectedMessage) {
+
+        Assert.assertEquals(String.format("SC should be %s", statusCode), statusCode, response.getStatusCode());
+
+        FailedResponse parsedResponse = response.as(FailedResponse.class);
         Assert.assertEquals(false, parsedResponse.getSuccess());
         Assert.assertEquals(expectedMessage, parsedResponse.getMessage());
     }

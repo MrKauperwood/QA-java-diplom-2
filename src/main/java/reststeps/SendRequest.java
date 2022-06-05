@@ -1,11 +1,13 @@
 package reststeps;
 
 import io.restassured.response.Response;
+import requests.CreateOrderRequest;
 import requests.LoginRequest;
 import requests.RegisterUserRequest;
 import requests.UpdateUserInfoRequest;
 
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.SC_OK;
 import static reststeps.Constants.BASE_URL;
 import static reststeps.Handlers.*;
 
@@ -44,6 +46,25 @@ public class SendRequest {
                         .body(userData)
                         .when()
                         .patch(BASE_URL + HANDLER_PATCH_USER_INFO);
+    }
+
+    public static Response sendRequestCreateOrder(CreateOrderRequest orderData, String token) {
+        return
+                given()
+                        .header("Content-type", "application/json")
+                        .header("authorization", token)
+                        .and()
+                        .body(orderData)
+                        .when()
+                        .post(BASE_URL + HANDLER_POST_CREATE_ORDER);
+    }
+
+    public static Response sendRequestGetIngredients() {
+        return
+                given()
+                        .header("Content-type", "application/json")
+                        .when()
+                        .get(BASE_URL + HANDLER_GET_INGREDIENTS_INFO);
     }
 
 }
