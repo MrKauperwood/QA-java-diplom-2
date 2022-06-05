@@ -15,12 +15,10 @@ import java.util.Locale;
 import static io.restassured.RestAssured.baseURI;
 import static org.apache.http.HttpStatus.SC_FORBIDDEN;
 import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
-import static reststeps.Constants.CHANGE_TO_THE_SAME_EMAIL_MSG;
-import static reststeps.Constants.SHOULD_BE_AUTHORISED_MSG;
+import static reststeps.Constants.*;
 import static reststeps.SendRequest.sendRequestLoginUser;
 import static reststeps.SendRequest.sendRequestUpdateUserInfo;
-import static reststeps.UserSteps.deleteUser;
-import static reststeps.UserSteps.registerNewUser;
+import static reststeps.UserSteps.*;
 import static reststeps.Utils.*;
 
 /**
@@ -33,7 +31,7 @@ public class ChangeUserInfoTest {
 
     @Before
     public void setUp() {
-        baseURI = "https://stellarburgers.nomoreparties.site";
+        baseURI = BASE_URI;
         token = null;
     }
 
@@ -48,11 +46,7 @@ public class ChangeUserInfoTest {
     @DisplayName("Check SC 200 and response after successful email updating user info")
     public void checkSC200AndResponseAfterSuccessfulUpdatingEmailUserInfo() {
         RegisterUserRequest registeredUser = registerNewUser();
-        LoginRequest loginRequest =
-                new LoginRequest(registeredUser.getEmail(), registeredUser.getPassword());
-        Response loginResponse = sendRequestLoginUser(loginRequest);
-
-        LoginResponse parsedLoginResponse = loginResponse.as(LoginResponse.class);
+        LoginResponse parsedLoginResponse = loginUnderUser(registeredUser);
         token = parsedLoginResponse.getAccessToken();
 
         GetUpdateRemoveUserInfoRequest UpdateUserInfoRequest =
@@ -70,8 +64,7 @@ public class ChangeUserInfoTest {
     @DisplayName("Check SC 200 and response after successful updating name in user info")
     public void checkSC200AndResponseAfterSuccessfulUpdatingNameInUserInfo() {
         RegisterUserRequest registeredUser = registerNewUser();
-        LoginRequest loginRequest =
-                new LoginRequest(registeredUser.getEmail(), registeredUser.getPassword());
+        LoginRequest loginRequest = new LoginRequest(registeredUser.getEmail(), registeredUser.getPassword());
         Response loginResponse = sendRequestLoginUser(loginRequest);
 
         LoginResponse parsedLoginResponse = loginResponse.as(LoginResponse.class);

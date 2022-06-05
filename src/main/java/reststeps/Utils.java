@@ -98,7 +98,7 @@ public class Utils {
     }
 
     public static void checkStatusCodeAndResponseForSuccessfulGetUserOrderRequest(
-            Response response,  ArrayList<OrderInfo> expectedUserOrders) {
+            Response response, ArrayList<OrderInfo> expectedUserOrders) {
 
         Assert.assertEquals(SHOULD_BE_200_MSG, SC_OK, response.getStatusCode());
 

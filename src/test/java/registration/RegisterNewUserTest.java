@@ -2,7 +2,6 @@ package registration;
 
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import requests.RegisterUserRequest;
@@ -11,6 +10,7 @@ import java.util.HashMap;
 
 import static io.restassured.RestAssured.*;
 import static org.apache.http.HttpStatus.SC_FORBIDDEN;
+import static reststeps.Constants.BASE_URI;
 import static reststeps.Constants.USER_ALREADY_EXISTS_MSG;
 import static reststeps.SendRequest.sendRequestRegisterNewUser;
 import static reststeps.UserSteps.*;
@@ -25,7 +25,7 @@ public class RegisterNewUserTest {
 
     @Before
     public void setUp() {
-        baseURI = "https://stellarburgers.nomoreparties.site";
+        baseURI = BASE_URI;
     }
 
     @Test

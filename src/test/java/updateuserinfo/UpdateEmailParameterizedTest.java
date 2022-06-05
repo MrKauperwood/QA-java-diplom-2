@@ -39,7 +39,7 @@ public class UpdateEmailParameterizedTest {
 
     @Before
     public void setUp() {
-        baseURI = "https://stellarburgers.nomoreparties.site";
+        baseURI = BASE_URI;
         token = null;
     }
 
@@ -50,13 +50,13 @@ public class UpdateEmailParameterizedTest {
         }
     }
 
-    @Parameterized.Parameters(name = "Test data: {0}")
+    @Parameterized.Parameters(name = "Test data: '{0}'")
     public static Object[][] getUserData() {
         return new Object[][]{
-                {"", List.of(SC_FORBIDDEN, INCORRECT_EMAIL)},
-                {" ", List.of(SC_FORBIDDEN, INCORRECT_EMAIL)},
-                {"asdgmail.ru", List.of(SC_FORBIDDEN, INCORRECT_EMAIL)},
-                {"русский@пьфш.ру", List.of(SC_FORBIDDEN, INCORRECT_EMAIL)}
+                {"", List.of(SC_FORBIDDEN, INCORRECT_EMAIL_MSG)},
+                {" ", List.of(SC_FORBIDDEN, INCORRECT_EMAIL_MSG)},
+                {"asdgmail.ru", List.of(SC_FORBIDDEN, INCORRECT_EMAIL_MSG)},
+                {"русский@пьфш.ру", List.of(SC_FORBIDDEN, INCORRECT_EMAIL_MSG)}
         };
     }
 
@@ -67,6 +67,7 @@ public class UpdateEmailParameterizedTest {
         Response loginResponse = sendRequestLoginUser(loginRequest);
         LoginResponse parsedLoginResponse = loginResponse.as(LoginResponse.class);
         token = parsedLoginResponse.getAccessToken();
+
         GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
                 new GetUpdateRemoveUserInfoRequest(email, null);
 

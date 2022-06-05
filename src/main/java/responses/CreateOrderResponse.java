@@ -20,23 +20,12 @@ public class CreateOrderResponse {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public OrderInfoAfterCreation getOrder() {
         return order;
-    }
-
-    public void setOrder(OrderInfoAfterCreation order) {
-        this.order = order;
     }
 
     public Boolean getSuccess() {
         return success;
     }
 
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
 }

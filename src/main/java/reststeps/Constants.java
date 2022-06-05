@@ -6,10 +6,10 @@ package reststeps;
  */
 public final class Constants {
 
-    public static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
+    public static final String BASE_URI = "https://stellarburgers.nomoreparties.site";
 
-    public static final String INCORRECT_EMAIL = "Incorrect email";
-    public static final String INCORRECT_EMAIL_OR_PASSWORD = "email or password are incorrect";
+    public static final String INCORRECT_EMAIL_MSG = "Incorrect email";
+    public static final String INCORRECT_EMAIL_OR_PASSWORD_MSG = "email or password are incorrect";
     public static final String SHOULD_BE_AUTHORISED_MSG = "You should be authorised";
     public static final String CHANGE_TO_THE_SAME_EMAIL_MSG = "User with such email already exists";
 
@@ -20,10 +20,9 @@ public final class Constants {
     public static final String EMPTY_LIST_OF_INGREDIENTS_MSG = "Ingredient ids must be provided";
     public static final String WRONG_INGREDIENTS_MSG = "One or more ids provided are incorrect";
 
+    public static final String NON_EXISTING_INGREDIENT = "60d3463f7034a00026900000";
 
-    public static final String nonExistingIngredient = "60d3463f7034a00026900000";
-
-    public static final String burgerName = "Флюоресцентный бессмертный бургер";
+    public static final String BURGER_NAME = "Флюоресцентный бессмертный бургер";
 
 
 }

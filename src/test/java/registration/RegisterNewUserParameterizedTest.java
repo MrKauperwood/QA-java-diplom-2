@@ -12,8 +12,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.baseURI;
 import static org.apache.http.HttpStatus.*;
-import static reststeps.Constants.INCORRECT_EMAIL;
-import static reststeps.Constants.REQUIRED_FIELDS_ARE_EMPTY_MSG;
+import static reststeps.Constants.*;
 import static reststeps.SendRequest.sendRequestRegisterNewUser;
 import static reststeps.UserSteps.generateDataForNewUser;
 import static reststeps.Utils.checkStatusCodeAndResponseForFailedRegisterRequest;
@@ -35,10 +34,10 @@ public class RegisterNewUserParameterizedTest {
 
     @Before
     public void setUp() {
-        baseURI = "https://stellarburgers.nomoreparties.site";
+        baseURI = BASE_URI;
     }
 
-    @Parameterized.Parameters(name = "Test data: {0}")
+    @Parameterized.Parameters(name = "Test data: '{0}'")
     public static Object[][] getUserData() {
         HashMap<String, String> newUserData = generateDataForNewUser();
         String pas = newUserData.get("password");
@@ -46,16 +45,16 @@ public class RegisterNewUserParameterizedTest {
         String email = newUserData.get("email");
         return new Object[][]{
                 {List.of("", pas, name), List.of(SC_FORBIDDEN, REQUIRED_FIELDS_ARE_EMPTY_MSG)},
-                {List.of("asd@gmail", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL)}, // bug
-                {List.of("asdgmail.ru", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL)}, // bug
-                {List.of(" ", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL)}, // bug
-                {List.of(" " + email, pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL)}, // bug
-                {List.of(email + " ", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL)}, // bug
-                {List.of(name + " @gmail.com", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL)}, // bug
-                {List.of(name + "@ gmail.com", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL)}, // bug
-                {List.of(name + "@gmai.l.com", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL)}, // bug
-                {List.of("русский@пьфш.ру", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL)}, // bug
-                {List.of("1" + email, pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL)}, // bug
+                {List.of("asd@gmail", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL_MSG)}, // bug
+                {List.of("asdgmail.ru", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL_MSG)}, // bug
+                {List.of(" ", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL_MSG)}, // bug
+                {List.of(" " + email, pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL_MSG)}, // bug
+                {List.of(email + " ", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL_MSG)}, // bug
+                {List.of(name + " @gmail.com", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL_MSG)}, // bug
+                {List.of(name + "@ gmail.com", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL_MSG)}, // bug
+                {List.of(name + "@gmai.l.com", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL_MSG)}, // bug
+                {List.of("русский@пьфш.ру", pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL_MSG)}, // bug
+                {List.of("1" + email, pas, name), List.of(SC_BAD_REQUEST, INCORRECT_EMAIL_MSG)}, // bug
 
                 {List.of(email, "", name), List.of(SC_FORBIDDEN, REQUIRED_FIELDS_ARE_EMPTY_MSG)},
 

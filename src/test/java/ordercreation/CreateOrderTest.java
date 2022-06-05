@@ -1,4 +1,4 @@
-package OrderCreation;
+package ordercreation;
 
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
@@ -13,8 +13,7 @@ import responses.LoginResponse;
 import java.util.List;
 
 import static io.restassured.RestAssured.baseURI;
-import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
-import static org.apache.http.HttpStatus.SC_FORBIDDEN;
+import static org.apache.http.HttpStatus.*;
 import static reststeps.Constants.*;
 import static reststeps.SendRequest.*;
 import static reststeps.UserSteps.*;
@@ -32,9 +31,9 @@ public class CreateOrderTest {
 
     @Before
     public void setUp() {
-        baseURI = "https://stellarburgers.nomoreparties.site";
+        baseURI = BASE_URI;
         registeredUser = registerNewUser();
-        accessibleIngredients = getListOsIngredients();
+        accessibleIngredients = getListOfIngredients();
         token = null;
     }
 
@@ -60,7 +59,7 @@ public class CreateOrderTest {
 
         checkStatusCodeAndResponseForSuccessfulOrderCreationRequest(
                 createOrderResponse,
-                burgerName);
+                BURGER_NAME);
     }
 
     @Test
@@ -102,7 +101,7 @@ public class CreateOrderTest {
         token = parsedLoginResponse.getAccessToken();
 
         CreateOrderRequest createOrderRequest = new CreateOrderRequest(
-                List.of(nonExistingIngredient));
+                List.of(NON_EXISTING_INGREDIENT));
 
         Response createOrderResponse = sendRequestCreateOrder(createOrderRequest, parsedLoginResponse.getAccessToken());
 
@@ -112,5 +111,21 @@ public class CreateOrderTest {
                 WRONG_INGREDIENTS_MSG);
     }
 
+    @Test
+    @DisplayName("Check failed order creation with invalid ingredient id")
+    public void checkFailedOrderCreationWithInvalidIngredientId() {
+        LoginResponse parsedLoginResponse = loginUnderUser(registeredUser);
+        token = parsedLoginResponse.getAccessToken();
+
+        CreateOrderRequest createOrderRequest = new CreateOrderRequest(
+                List.of("vernika500ky"));
+
+        Response createOrderResponse = sendRequestCreateOrder(createOrderRequest, parsedLoginResponse.getAccessToken());
+
+        checkStatusCodeAndResponseForFailedOrderCreationRequest(
+                createOrderResponse,
+                SC_INTERNAL_SERVER_ERROR,
+                WRONG_INGREDIENTS_MSG);
+    }
 
 }

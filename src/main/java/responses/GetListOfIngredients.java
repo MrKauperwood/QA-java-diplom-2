@@ -16,19 +16,7 @@ public class GetListOfIngredients {
         this.data = data;
     }
 
-    public Boolean getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
     public List<IngredientInfo> getData() {
         return data;
-    }
-
-    public void setData(List<IngredientInfo> data) {
-        this.data = data;
     }
 }

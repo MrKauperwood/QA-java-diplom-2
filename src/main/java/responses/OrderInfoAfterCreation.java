@@ -16,7 +16,4 @@ public class OrderInfoAfterCreation {
         return number;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
 }

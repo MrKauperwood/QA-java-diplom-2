@@ -20,15 +20,8 @@ public class UpdateUserInfoResponse {
         return success;
     }
 
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
     public GetUpdateRemoveUserInfoRequest getUser() {
         return user;
     }
 
-    public void setUser(GetUpdateRemoveUserInfoRequest user) {
-        this.user = user;
-    }
 }

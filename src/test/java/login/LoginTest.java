@@ -12,7 +12,8 @@ import responses.LoginResponse;
 import static io.restassured.RestAssured.baseURI;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
-import static reststeps.Constants.INCORRECT_EMAIL_OR_PASSWORD;
+import static reststeps.Constants.BASE_URI;
+import static reststeps.Constants.INCORRECT_EMAIL_OR_PASSWORD_MSG;
 import static reststeps.SendRequest.sendRequestLoginUser;
 import static reststeps.UserSteps.deleteUser;
 import static reststeps.UserSteps.registerNewUser;
@@ -29,7 +30,7 @@ public class LoginTest {
 
     @Before
     public void setUp() {
-        baseURI = "https://stellarburgers.nomoreparties.site";
+        baseURI = BASE_URI;
         token = null;
     }
 
@@ -64,7 +65,7 @@ public class LoginTest {
         checkStatusCodeAndResponseForFailedRegisterRequest(
                 response,
                 SC_UNAUTHORIZED,
-                INCORRECT_EMAIL_OR_PASSWORD);
+                INCORRECT_EMAIL_OR_PASSWORD_MSG);
     }
 
     @Test
@@ -77,6 +78,6 @@ public class LoginTest {
         checkStatusCodeAndResponseForFailedRegisterRequest(
                 response,
                 SC_UNAUTHORIZED,
-                INCORRECT_EMAIL_OR_PASSWORD);
+                INCORRECT_EMAIL_OR_PASSWORD_MSG);
     }
 }
