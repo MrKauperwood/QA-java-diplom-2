@@ -4,7 +4,7 @@ package reststeps;
  * Author: Alexey Bondarenko
  * Date: 04.06.2022
  */
-public class Handlers {
+public final class Handlers {
 
     public static final String HANDLER_POST_REGISTER_NEW_USER = "/api/auth/register";
     public static final String HANDLER_POST_LOGIN = "/api/auth/login";

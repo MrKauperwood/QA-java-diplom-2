@@ -7,11 +7,11 @@ package responses;
 public class UserInfo {
 
     private String email;
-    private String password;
+    private String name;
 
-    public UserInfo(String email, String password) {
+    public UserInfo(String email, String name) {
         this.email = email;
-        this.password = password;
+        this.name = name;
     }
 
     public String getEmail() {
@@ -22,11 +22,11 @@ public class UserInfo {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getName() {
+        return name;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setName(String name) {
+        this.name = name;
     }
 }

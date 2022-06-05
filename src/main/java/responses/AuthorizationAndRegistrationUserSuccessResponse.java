@@ -4,14 +4,14 @@ package responses;
  * Author: Alexey Bondarenko
  * Date: 04.06.2022
  */
-public class RegisterUserResponse {
+public class AuthorizationAndRegistrationUserSuccessResponse {
 
     private Boolean success;
     private UserInfo user;
     private String accessToken;
     private String refreshToken;
 
-    public RegisterUserResponse(Boolean success, UserInfo user, String accessToken, String refreshToken) {
+    public AuthorizationAndRegistrationUserSuccessResponse(Boolean success, UserInfo user, String accessToken, String refreshToken) {
         this.success = success;
         this.user = user;
         this.accessToken = accessToken;
