@@ -28,7 +28,10 @@ public class RegisterNewUserParameterizedTest {
     private List<Object> expectedResult;
 
     public RegisterNewUserParameterizedTest(List<Object> data, List<Object> expectedResult) {
-        this.data = new RegisterUserRequest(data.get(0).toString(), data.get(1).toString(), data.get(2).toString());
+        this.data = new RegisterUserRequest(
+                data.get(0).toString(),
+                data.get(1).toString(),
+                data.get(2).toString());
         this.expectedResult = expectedResult;
     }
 
@@ -37,7 +40,7 @@ public class RegisterNewUserParameterizedTest {
         baseURI = BASE_URI;
     }
 
-    @Parameterized.Parameters(name = "Test data: '{0}'")
+    @Parameterized.Parameters(name = "Test Data for email, pas, name: \"{0}\"")
     public static Object[][] getUserData() {
         HashMap<String, String> newUserData = generateDataForNewUser();
         String pas = newUserData.get("password");

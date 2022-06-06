@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: updateuserinfo.UpdateEmailParameterizedTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 4.147 s <<< FAILURE! - in updateuserinfo.UpdateEmailParameterizedTest
+checkUpdatingUserEmailWithLogin[Test data for email: ""](updateuserinfo.UpdateEmailParameterizedTest)  Time elapsed: 1.07 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[Incorrect email]> but was:<[User with such email already exists]>
+	at updateuserinfo.UpdateEmailParameterizedTest.checkUpdatingUserEmailWithLogin(UpdateEmailParameterizedTest.java:76)
+
+checkUpdatingUserEmailWithLogin[Test data for email: " "](updateuserinfo.UpdateEmailParameterizedTest)  Time elapsed: 1.142 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[Incorrect email]> but was:<[User with such email already exists]>
+	at updateuserinfo.UpdateEmailParameterizedTest.checkUpdatingUserEmailWithLogin(UpdateEmailParameterizedTest.java:76)
+
+checkUpdatingUserEmailWithLogin[Test data for email: "asdgmail.ru"](updateuserinfo.UpdateEmailParameterizedTest)  Time elapsed: 1.026 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[Incorrect email]> but was:<[User with such email already exists]>
+	at updateuserinfo.UpdateEmailParameterizedTest.checkUpdatingUserEmailWithLogin(UpdateEmailParameterizedTest.java:76)
+
+checkUpdatingUserEmailWithLogin[Test data for email: "русский@пьфш.ру"](updateuserinfo.UpdateEmailParameterizedTest)  Time elapsed: 0.901 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[Incorrect email]> but was:<[User with such email already exists]>
+	at updateuserinfo.UpdateEmailParameterizedTest.checkUpdatingUserEmailWithLogin(UpdateEmailParameterizedTest.java:76)
+

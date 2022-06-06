@@ -1,0 +1,7 @@
+updateuserinfo/UpdateEmailParameterizedTest.class
+registration/RegisterNewUserTest.class
+login/LoginTest.class
+registration/RegisterNewUserParameterizedTest.class
+getuserorders/GetUserOrdersTest.class
+updateuserinfo/UpdateUserInfoTest.class
+ordercreation/CreateOrderTest.class

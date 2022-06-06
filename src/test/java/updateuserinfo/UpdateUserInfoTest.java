@@ -25,7 +25,7 @@ import static reststeps.Utils.*;
  * Author: Alexey Bondarenko
  * Date: 04.06.2022
  */
-public class ChangeUserInfoTest {
+public class UpdateUserInfoTest {
 
     private String token;
 

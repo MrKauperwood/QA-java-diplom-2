@@ -50,7 +50,7 @@ public class UpdateEmailParameterizedTest {
         }
     }
 
-    @Parameterized.Parameters(name = "Test data: '{0}'")
+    @Parameterized.Parameters(name = "Test data for email: \"{0}\"")
     public static Object[][] getUserData() {
         return new Object[][]{
                 {"", List.of(SC_FORBIDDEN, INCORRECT_EMAIL_MSG)},

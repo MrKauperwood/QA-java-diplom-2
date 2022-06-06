@@ -1,5 +1,6 @@
 package reststeps;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import responses.*;
@@ -18,6 +19,7 @@ public class Utils {
 
     private static final String SHOULD_BE_200_MSG = "SC should be 200";
 
+    @Step("Check SC and Response for failed register request")
     public static void checkStatusCodeAndResponseForFailedRegisterRequest(
             Response response, int expectedStatus, String expectedMessage) {
 
@@ -29,6 +31,7 @@ public class Utils {
         Assert.assertEquals(expectedMessage, parsedResponse.getMessage());
     }
 
+    @Step("Check SC and Response for successful register request")
     public static void checkStatusCodeAndResponseForSuccessfulRegisterRequest(
             Response response, String email, String name) {
 
@@ -42,6 +45,7 @@ public class Utils {
         Assert.assertEquals(email.toLowerCase(Locale.ROOT), parsedResponse.getUser().getEmail());
     }
 
+    @Step("Check SC and Response for successful login request")
     public static void checkStatusCodeAndResponseForSuccessfulLoginRequest(
             Response response, String email, String name) {
 
@@ -55,6 +59,7 @@ public class Utils {
         Assert.assertEquals(email.toLowerCase(Locale.ROOT), parsedResponse.getUser().getEmail());
     }
 
+    @Step("Check SC and Response for successful UpdateUserInfo request")
     public static void checkStatusCodeAndResponseForSuccessfulUpdateUserInfoRequest(
             Response response, String email, String name) {
 
@@ -66,6 +71,7 @@ public class Utils {
         Assert.assertEquals(email.toLowerCase(Locale.ROOT), parsedResponse.getUser().getEmail());
     }
 
+    @Step("Check SC and Response for failed UpdateUserInfo request")
     public static void checkStatusCodeAndResponseForFailedUpdateUserInfoRequest(
             Response response, int statusCode, String expectedMessage) {
 
@@ -76,6 +82,7 @@ public class Utils {
         Assert.assertEquals(expectedMessage, parsedResponse.getMessage());
     }
 
+    @Step("Check SC and Response for successful OrderCreation request")
     public static void checkStatusCodeAndResponseForSuccessfulOrderCreationRequest(
             Response response, String name) {
 
@@ -87,6 +94,7 @@ public class Utils {
         Assert.assertNotNull(parsedResponse.getOrder().getNumber());
     }
 
+    @Step("Check SC and Response for failed FailedOrderCreation request")
     public static void checkStatusCodeAndResponseForFailedOrderCreationRequest(
             Response response, int statusCode, String expectedMessage) {
 
@@ -97,6 +105,7 @@ public class Utils {
         Assert.assertEquals(expectedMessage, parsedResponse.getMessage());
     }
 
+    @Step("Check SC and Response for successful GetUserOrder request")
     public static void checkStatusCodeAndResponseForSuccessfulGetUserOrderRequest(
             Response response, ArrayList<OrderInfo> expectedUserOrders) {
 
@@ -109,6 +118,7 @@ public class Utils {
         Assert.assertEquals(expectedUserOrders.getClass(), parsedResponse.getOrders().getClass());
     }
 
+    @Step("Check SC and Response for failed GetUserOrder request")
     public static void checkStatusCodeAndResponseForFailedGetUserOrderRequest(
             Response response, int statusCode, String expectedMessage) {
 
