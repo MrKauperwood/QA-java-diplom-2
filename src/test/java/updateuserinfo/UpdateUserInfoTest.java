@@ -50,7 +50,7 @@ public class UpdateUserInfoTest {
         token = parsedLoginResponse.getAccessToken();
 
         GetUpdateRemoveUserInfoRequest UpdateUserInfoRequest =
-                new GetUpdateRemoveUserInfoRequest("new" + parsedLoginResponse.getUser().getEmail(), null);
+                new GetUpdateRemoveUserInfoRequest("new" + parsedLoginResponse.getUser().getEmail(), null, null);
 
         Response updateInfoResponse =
                 sendRequestUpdateUserInfo(UpdateUserInfoRequest, parsedLoginResponse.getAccessToken());
@@ -71,7 +71,7 @@ public class UpdateUserInfoTest {
         token = parsedLoginResponse.getAccessToken();
 
         GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
-                new GetUpdateRemoveUserInfoRequest(null, "new" + parsedLoginResponse.getUser().getName());
+                new GetUpdateRemoveUserInfoRequest(null, "new" + parsedLoginResponse.getUser().getName(), null);
 
         Response updateInfoResponse =
                 sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, parsedLoginResponse.getAccessToken());
@@ -80,6 +80,28 @@ public class UpdateUserInfoTest {
                 updateInfoResponse,
                 parsedLoginResponse.getUser().getEmail().toLowerCase(Locale.ROOT),
                 "new" + parsedLoginResponse.getUser().getName());
+    }
+
+    @Test
+    @DisplayName("Check SC 200 and response after successful updating password in user info")
+    public void checkSC200AndResponseAfterSuccessfulUpdatingPasswordInUserInfo() {
+        RegisterUserRequest registeredUser = registerNewUser();
+        LoginRequest loginRequest = new LoginRequest(registeredUser.getEmail(), registeredUser.getPassword());
+        Response loginResponse = sendRequestLoginUser(loginRequest);
+
+        LoginResponse parsedLoginResponse = loginResponse.as(LoginResponse.class);
+        token = parsedLoginResponse.getAccessToken();
+
+        GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
+                new GetUpdateRemoveUserInfoRequest(null, null, registeredUser.getPassword() + "new");
+
+        Response updateInfoResponse =
+                sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, parsedLoginResponse.getAccessToken());
+
+        checkStatusCodeAndResponseForSuccessfulUpdateUserInfoRequest(
+                updateInfoResponse,
+                parsedLoginResponse.getUser().getEmail().toLowerCase(Locale.ROOT),
+                parsedLoginResponse.getUser().getName());
     }
 
     @Test
@@ -94,7 +116,7 @@ public class UpdateUserInfoTest {
         token = parsedLoginResponse.getAccessToken();
 
         GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
-                new GetUpdateRemoveUserInfoRequest(parsedLoginResponse.getUser().getEmail(), null);
+                new GetUpdateRemoveUserInfoRequest(parsedLoginResponse.getUser().getEmail(), null, null);
 
         Response updateInfoResponse =
                 sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, parsedLoginResponse.getAccessToken());
@@ -117,7 +139,7 @@ public class UpdateUserInfoTest {
         token = parsedLoginResponse.getAccessToken();
 
         GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
-                new GetUpdateRemoveUserInfoRequest(null, parsedLoginResponse.getUser().getName());
+                new GetUpdateRemoveUserInfoRequest(null, parsedLoginResponse.getUser().getName(), null);
 
         Response updateInfoResponse =
                 sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, parsedLoginResponse.getAccessToken());
@@ -135,7 +157,7 @@ public class UpdateUserInfoTest {
         RegisterUserRequest registeredUser = registerNewUser();
 
         GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
-                new GetUpdateRemoveUserInfoRequest("new" + registeredUser.getEmail().toLowerCase(Locale.ROOT), null);
+                new GetUpdateRemoveUserInfoRequest("new" + registeredUser.getEmail().toLowerCase(Locale.ROOT), null, null);
 
         Response updateInfoResponse =
                 sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, "");
@@ -152,7 +174,24 @@ public class UpdateUserInfoTest {
         RegisterUserRequest registeredUser = registerNewUser();
 
         GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
-                new GetUpdateRemoveUserInfoRequest(null, "new" + registeredUser.getName());
+                new GetUpdateRemoveUserInfoRequest(null, "new" + registeredUser.getName(), null);
+
+        Response updateInfoResponse =
+                sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, "");
+
+        checkStatusCodeAndResponseForFailedUpdateUserInfoRequest(
+                updateInfoResponse,
+                SC_UNAUTHORIZED,
+                SHOULD_BE_AUTHORISED_MSG);
+    }
+
+    @Test
+    @DisplayName("Check SC 401 and response after failed updating user password without authorization")
+    public void checkSC401AndResponseAfterFailedUpdatingPasswordWithoutAuthorization() {
+        RegisterUserRequest registeredUser = registerNewUser();
+
+        GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
+                new GetUpdateRemoveUserInfoRequest(null, null, registeredUser.getPassword() + "New");
 
         Response updateInfoResponse =
                 sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, "");

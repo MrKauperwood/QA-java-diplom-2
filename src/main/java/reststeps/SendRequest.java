@@ -1,5 +1,6 @@
 package reststeps;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import requests.CreateOrderRequest;
 import requests.LoginRequest;
@@ -16,6 +17,7 @@ import static reststeps.Handlers.*;
  */
 public class SendRequest {
 
+    @Step("Send POST request: register new user")
     public static Response sendRequestRegisterNewUser(RegisterUserRequest user) {
         return
                 given()
@@ -26,6 +28,7 @@ public class SendRequest {
                         .post(BASE_URI + HANDLER_POST_REGISTER_NEW_USER);
     }
 
+    @Step("Send POST request: login user")
     public static Response sendRequestLoginUser(LoginRequest userData) {
         return
                 given()
@@ -36,6 +39,7 @@ public class SendRequest {
                         .post(BASE_URI + HANDLER_POST_LOGIN);
     }
 
+    @Step("Send PATCH request: update user info")
     public static Response sendRequestUpdateUserInfo(GetUpdateRemoveUserInfoRequest userData, String token) {
         return
                 given()
@@ -47,6 +51,7 @@ public class SendRequest {
                         .patch(BASE_URI + HANDLER_PATCH_USER_INFO);
     }
 
+    @Step("Send DELETE request: delete user")
     public static Response sendRequestDeleteUser(String token) {
         return
                 given()
@@ -56,6 +61,7 @@ public class SendRequest {
                         .delete(BASE_URI + HANDLER_DELETE_USER);
     }
 
+    @Step("Send POST request: create new order")
     public static Response sendRequestCreateOrder(CreateOrderRequest orderData, String token) {
         return
                 given()
@@ -67,6 +73,7 @@ public class SendRequest {
                         .post(BASE_URI + HANDLER_POST_CREATE_ORDER);
     }
 
+    @Step("Send GET request: get ingredients")
     public static Response sendRequestGetIngredients() {
         return
                 given()
@@ -75,6 +82,7 @@ public class SendRequest {
                         .get(BASE_URI + HANDLER_GET_INGREDIENTS_INFO);
     }
 
+    @Step("Send GET request: get user's orders")
     public static Response sendRequestGetUserOrders(String token) {
         return
                 given()
@@ -84,6 +92,7 @@ public class SendRequest {
                         .get(BASE_URI + HANDLER_GET_USER_ORDERS);
     }
 
+    @Step("Send GET request: get info about all orders")
     public static Response sendRequestGetInformationAboutAllOrders(String token) {
         return
                 given()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="updateuserinfo.UpdateUserInfoTest" time="5.165" tests="6" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="updateuserinfo.UpdateUserInfoTest" time="7.531" tests="8" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CZ"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/18/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/surefire/surefirebooter11970678913125453090.jar /Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/surefire 2022-06-06T12-20-44_263-jvmRun1 surefire3305256457341451366tmp surefire_02208965380141532700tmp"/>
+    <property name="sun.java.command" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/surefire/surefirebooter1898599911166924912.jar /Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/surefire 2022-06-08T10-47-17_027-jvmRun1 surefire6228315772083032842tmp surefire_09658141119693371078tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/test-classes:/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/classes:/Users/alekseyb/.m2/repository/io/rest-assured/rest-assured/4.4.0/rest-assured-4.4.0.jar:/Users/alekseyb/.m2/repository/org/codehaus/groovy/groovy/3.0.8/groovy-3.0.8.jar:/Users/alekseyb/.m2/repository/org/codehaus/groovy/groovy-xml/3.0.8/groovy-xml-3.0.8.jar:/Users/alekseyb/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/alekseyb/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/alekseyb/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/alekseyb/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/alekseyb/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/alekseyb/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/Users/alekseyb/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/alekseyb/.m2/repository/io/rest-assured/json-path/4.4.0/json-path-4.4.0.jar:/Users/alekseyb/.m2/repository/org/codehaus/groovy/groovy-json/3.0.8/groovy-json-3.0.8.jar:/Users/alekseyb/.m2/repository/io/rest-assured/rest-assured-common/4.4.0/rest-assured-common-4.4.0.jar:/Users/alekseyb/.m2/repository/io/rest-assured/xml-path/4.4.0/xml-path-4.4.0.jar:/Users/alekseyb/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/Users/alekseyb/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar:/Users/alekseyb/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar:/Users/alekseyb/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.3/jaxb-impl-2.3.3.jar:/Users/alekseyb/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/alekseyb/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/alekseyb/.m2/repository/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-junit4/2.17.3/allure-junit4-2.17.3.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-java-commons/2.17.3/allure-java-commons-2.17.3.jar:/Users/alekseyb/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-model/2.17.3/allure-model-2.17.3.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-rest-assured/2.17.3/allure-rest-assured-2.17.3.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-attachments/2.17.3/allure-attachments-2.17.3.jar:/Users/alekseyb/.m2/repository/org/freemarker/freemarker/2.3.31/freemarker-2.3.31.jar:"/>
     <property name="allure.results.directory" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/allure-results"/>
@@ -29,7 +29,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/surefire/surefirebooter11970678913125453090.jar"/>
+    <property name="surefire.real.class.path" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/surefire/surefirebooter1898599911166924912.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="18+0"/>
     <property name="user.name" value="alekseyb"/>
@@ -54,14 +54,16 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="62.0"/>
   </properties>
-  <testcase name="checkSC200AndResponseAfterSuccessfulUpdatingNameInUserInfo" classname="updateuserinfo.UpdateUserInfoTest" time="1.01"/>
-  <testcase name="checkSC200AndResponseAfterUpdatingUserNameToTheSameName" classname="updateuserinfo.UpdateUserInfoTest" time="1.177"/>
-  <testcase name="checkSC403AndResponseAfterFailedUpdatingUserInfoToTheSameEmail" classname="updateuserinfo.UpdateUserInfoTest" time="1.015">
+  <testcase name="checkSC200AndResponseAfterSuccessfulUpdatingNameInUserInfo" classname="updateuserinfo.UpdateUserInfoTest" time="1.097"/>
+  <testcase name="checkSC200AndResponseAfterUpdatingUserNameToTheSameName" classname="updateuserinfo.UpdateUserInfoTest" time="1.392"/>
+  <testcase name="checkSC401AndResponseAfterFailedUpdatingPasswordWithoutAuthorization" classname="updateuserinfo.UpdateUserInfoTest" time="0.515"/>
+  <testcase name="checkSC403AndResponseAfterFailedUpdatingUserInfoToTheSameEmail" classname="updateuserinfo.UpdateUserInfoTest" time="1.159">
     <failure message="SC should be 403 expected:&lt;403&gt; but was:&lt;200&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: SC should be 403 expected:<403> but was:<200>
-	at updateuserinfo.UpdateUserInfoTest.checkSC403AndResponseAfterFailedUpdatingUserInfoToTheSameEmail(UpdateUserInfoTest.java:102)
+	at updateuserinfo.UpdateUserInfoTest.checkSC403AndResponseAfterFailedUpdatingUserInfoToTheSameEmail(UpdateUserInfoTest.java:124)
 ]]></failure>
   </testcase>
-  <testcase name="checkSC200AndResponseAfterSuccessfulUpdatingEmailUserInfo" classname="updateuserinfo.UpdateUserInfoTest" time="1"/>
-  <testcase name="checkSC401AndResponseAfterFailedUpdatingEmailWithoutAuthorization" classname="updateuserinfo.UpdateUserInfoTest" time="0.525"/>
-  <testcase name="checkSC401AndResponseAfterFailedUpdatingNameWithoutAuthorization" classname="updateuserinfo.UpdateUserInfoTest" time="0.433"/>
+  <testcase name="checkSC200AndResponseAfterSuccessfulUpdatingPasswordInUserInfo" classname="updateuserinfo.UpdateUserInfoTest" time="1.163"/>
+  <testcase name="checkSC200AndResponseAfterSuccessfulUpdatingEmailUserInfo" classname="updateuserinfo.UpdateUserInfoTest" time="1.031"/>
+  <testcase name="checkSC401AndResponseAfterFailedUpdatingEmailWithoutAuthorization" classname="updateuserinfo.UpdateUserInfoTest" time="0.508"/>
+  <testcase name="checkSC401AndResponseAfterFailedUpdatingNameWithoutAuthorization" classname="updateuserinfo.UpdateUserInfoTest" time="0.655"/>
 </testsuite>

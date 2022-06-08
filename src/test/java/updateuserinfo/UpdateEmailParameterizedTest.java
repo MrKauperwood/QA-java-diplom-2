@@ -69,7 +69,7 @@ public class UpdateEmailParameterizedTest {
         token = parsedLoginResponse.getAccessToken();
 
         GetUpdateRemoveUserInfoRequest getUpdateRemoveUserInfoRequest =
-                new GetUpdateRemoveUserInfoRequest(email, null);
+                new GetUpdateRemoveUserInfoRequest(email, null, null);
 
         Response updateInfoResponse =
                 sendRequestUpdateUserInfo(getUpdateRemoveUserInfoRequest, parsedLoginResponse.getAccessToken());

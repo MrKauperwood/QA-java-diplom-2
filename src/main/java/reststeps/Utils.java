@@ -23,7 +23,6 @@ public class Utils {
     public static void checkStatusCodeAndResponseForFailedRegisterRequest(
             Response response, int expectedStatus, String expectedMessage) {
 
-        Assert.assertTrue(INTERNAL_SERVER_ERROR_MSG, response.getStatusCode() < SC_INTERNAL_SERVER_ERROR);
         Assert.assertEquals(expectedStatus, response.getStatusCode());
 
         FailedResponse parsedResponse = response.as(FailedResponse.class);
