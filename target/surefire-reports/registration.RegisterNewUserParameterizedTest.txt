@@ -1,0 +1,44 @@
+-------------------------------------------------------------------------------
+Test set: registration.RegisterNewUserParameterizedTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 10, Errors: 0, Skipped: 0, Time elapsed: 3.481 s <<< FAILURE! - in registration.RegisterNewUserParameterizedTest
+checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: "[asd@gmail, wTSskmO7LC, rSwrzyj QEeyQCOcut]"](registration.RegisterNewUserParameterizedTest)  Time elapsed: 0.344 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<500>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+
+checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: "[asdgmail.ru, wTSskmO7LC, rSwrzyj QEeyQCOcut]"](registration.RegisterNewUserParameterizedTest)  Time elapsed: 0.24 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<403>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+
+checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: "[ , wTSskmO7LC, rSwrzyj QEeyQCOcut]"](registration.RegisterNewUserParameterizedTest)  Time elapsed: 0.191 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<403>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+
+checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: "[ Ab1654674442671@gmail.com, wTSskmO7LC, rSwrzyj QEeyQCOcut]"](registration.RegisterNewUserParameterizedTest)  Time elapsed: 0.299 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<200>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+
+checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: "[Ab1654674442671@gmail.com , wTSskmO7LC, rSwrzyj QEeyQCOcut]"](registration.RegisterNewUserParameterizedTest)  Time elapsed: 0.209 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<403>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+
+checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: "[rSwrzyj QEeyQCOcut @gmail.com, wTSskmO7LC, rSwrzyj QEeyQCOcut]"](registration.RegisterNewUserParameterizedTest)  Time elapsed: 0.312 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<500>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+
+checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: "[rSwrzyj QEeyQCOcut@ gmail.com, wTSskmO7LC, rSwrzyj QEeyQCOcut]"](registration.RegisterNewUserParameterizedTest)  Time elapsed: 0.321 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<500>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+
+checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: "[rSwrzyj QEeyQCOcut@gmai.l.com, wTSskmO7LC, rSwrzyj QEeyQCOcut]"](registration.RegisterNewUserParameterizedTest)  Time elapsed: 0.345 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<500>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+
+checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: "[русский@пьфш.ру, wTSskmO7LC, rSwrzyj QEeyQCOcut]"](registration.RegisterNewUserParameterizedTest)  Time elapsed: 0.202 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<403>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+
+checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: "[1Ab1654674442671@gmail.com, wTSskmO7LC, rSwrzyj QEeyQCOcut]"](registration.RegisterNewUserParameterizedTest)  Time elapsed: 0.343 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<200>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+

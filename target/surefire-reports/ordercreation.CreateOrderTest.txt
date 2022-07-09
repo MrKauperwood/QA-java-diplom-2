@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: ordercreation.CreateOrderTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 7.153 s <<< FAILURE! - in ordercreation.CreateOrderTest
+checkFailedOrderCreationWithoutAuthorization(ordercreation.CreateOrderTest)  Time elapsed: 0.76 s  <<< FAILURE!
+java.lang.AssertionError: SC should be 403 expected:<403> but was:<200>
+	at ordercreation.CreateOrderTest.checkFailedOrderCreationWithoutAuthorization(CreateOrderTest.java:75)
+
+checkFailedOrderCreationWithInvalidIngredientId(ordercreation.CreateOrderTest)  Time elapsed: 1.563 s  <<< FAILURE!
+java.lang.AssertionError: SC should be 500 expected:<500> but was:<400>
+	at ordercreation.CreateOrderTest.checkFailedOrderCreationWithInvalidIngredientId(CreateOrderTest.java:125)
+

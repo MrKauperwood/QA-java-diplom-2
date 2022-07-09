@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="registration.RegisterNewUserParameterizedTest" time="3.481" tests="13" errors="0" skipped="0" failures="10">
+  <properties>
+    <property name="java.specification.version" value="18"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/test-classes:/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/classes:/Users/alekseyb/.m2/repository/io/rest-assured/rest-assured/4.4.0/rest-assured-4.4.0.jar:/Users/alekseyb/.m2/repository/org/codehaus/groovy/groovy/3.0.8/groovy-3.0.8.jar:/Users/alekseyb/.m2/repository/org/codehaus/groovy/groovy-xml/3.0.8/groovy-xml-3.0.8.jar:/Users/alekseyb/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/alekseyb/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/alekseyb/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/alekseyb/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/alekseyb/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/alekseyb/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/Users/alekseyb/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/alekseyb/.m2/repository/io/rest-assured/json-path/4.4.0/json-path-4.4.0.jar:/Users/alekseyb/.m2/repository/org/codehaus/groovy/groovy-json/3.0.8/groovy-json-3.0.8.jar:/Users/alekseyb/.m2/repository/io/rest-assured/rest-assured-common/4.4.0/rest-assured-common-4.4.0.jar:/Users/alekseyb/.m2/repository/io/rest-assured/xml-path/4.4.0/xml-path-4.4.0.jar:/Users/alekseyb/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/Users/alekseyb/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar:/Users/alekseyb/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar:/Users/alekseyb/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.3/jaxb-impl-2.3.3.jar:/Users/alekseyb/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/alekseyb/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/alekseyb/.m2/repository/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-junit4/2.17.3/allure-junit4-2.17.3.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-java-commons/2.17.3/allure-java-commons-2.17.3.jar:/Users/alekseyb/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-model/2.17.3/allure-model-2.17.3.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-rest-assured/2.17.3/allure-rest-assured-2.17.3.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-attachments/2.17.3/allure-attachments-2.17.3.jar:/Users/alekseyb/.m2/repository/org/freemarker/freemarker/2.3.31/freemarker-2.3.31.jar:"/>
+    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="18"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CZ"/>
+    <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/18/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/surefire/surefirebooter1898599911166924912.jar /Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/surefire 2022-06-08T10-47-17_027-jvmRun1 surefire6228315772083032842tmp surefire_09658141119693371078tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/test-classes:/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/classes:/Users/alekseyb/.m2/repository/io/rest-assured/rest-assured/4.4.0/rest-assured-4.4.0.jar:/Users/alekseyb/.m2/repository/org/codehaus/groovy/groovy/3.0.8/groovy-3.0.8.jar:/Users/alekseyb/.m2/repository/org/codehaus/groovy/groovy-xml/3.0.8/groovy-xml-3.0.8.jar:/Users/alekseyb/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/alekseyb/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/Users/alekseyb/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/alekseyb/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/alekseyb/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/alekseyb/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/Users/alekseyb/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/alekseyb/.m2/repository/io/rest-assured/json-path/4.4.0/json-path-4.4.0.jar:/Users/alekseyb/.m2/repository/org/codehaus/groovy/groovy-json/3.0.8/groovy-json-3.0.8.jar:/Users/alekseyb/.m2/repository/io/rest-assured/rest-assured-common/4.4.0/rest-assured-common-4.4.0.jar:/Users/alekseyb/.m2/repository/io/rest-assured/xml-path/4.4.0/xml-path-4.4.0.jar:/Users/alekseyb/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/Users/alekseyb/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar:/Users/alekseyb/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar:/Users/alekseyb/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.3/jaxb-impl-2.3.3.jar:/Users/alekseyb/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/alekseyb/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/alekseyb/.m2/repository/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-junit4/2.17.3/allure-junit4-2.17.3.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-java-commons/2.17.3/allure-java-commons-2.17.3.jar:/Users/alekseyb/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-model/2.17.3/allure-model-2.17.3.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-rest-assured/2.17.3/allure-rest-assured-2.17.3.jar:/Users/alekseyb/.m2/repository/io/qameta/allure/allure-attachments/2.17.3/allure-attachments-2.17.3.jar:/Users/alekseyb/.m2/repository/org/freemarker/freemarker/2.3.31/freemarker-2.3.31.jar:"/>
+    <property name="allure.results.directory" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/allure-results"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/alekseyb"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2022-03-22"/>
+    <property name="java.home" value="/usr/local/Cellar/openjdk/18/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2/target/surefire/surefirebooter1898599911166924912.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="18+0"/>
+    <property name="user.name" value="alekseyb"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="12.0.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Homebrew"/>
+    <property name="localRepository" value="/Users/alekseyb/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/w7/184mq_fj1lq3z_7vcdp_gcl00000gn/T/"/>
+    <property name="java.version" value="18"/>
+    <property name="user.dir" value="/Users/alekseyb/Desktop/Diplom/QA-java-diplom-2"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/alekseyb/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Homebrew"/>
+    <property name="java.vm.version" value="18+0"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="62.0"/>
+  </properties>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[, wTSskmO7LC, rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.252"/>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[asd@gmail, wTSskmO7LC, rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.344">
+    <failure message="expected:&lt;400&gt; but was:&lt;500&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<400> but was:<500>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+]]></failure>
+  </testcase>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[asdgmail.ru, wTSskmO7LC, rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.24">
+    <failure message="expected:&lt;400&gt; but was:&lt;403&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<400> but was:<403>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+]]></failure>
+  </testcase>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[ , wTSskmO7LC, rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.191">
+    <failure message="expected:&lt;400&gt; but was:&lt;403&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<400> but was:<403>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+]]></failure>
+  </testcase>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[ Ab1654674442671@gmail.com, wTSskmO7LC, rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.299">
+    <failure message="expected:&lt;400&gt; but was:&lt;200&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<400> but was:<200>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+]]></failure>
+  </testcase>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[Ab1654674442671@gmail.com , wTSskmO7LC, rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.209">
+    <failure message="expected:&lt;400&gt; but was:&lt;403&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<400> but was:<403>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+]]></failure>
+  </testcase>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[rSwrzyj QEeyQCOcut @gmail.com, wTSskmO7LC, rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.312">
+    <failure message="expected:&lt;400&gt; but was:&lt;500&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<400> but was:<500>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+]]></failure>
+  </testcase>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[rSwrzyj QEeyQCOcut@ gmail.com, wTSskmO7LC, rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.321">
+    <failure message="expected:&lt;400&gt; but was:&lt;500&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<400> but was:<500>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+]]></failure>
+  </testcase>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[rSwrzyj QEeyQCOcut@gmai.l.com, wTSskmO7LC, rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.345">
+    <failure message="expected:&lt;400&gt; but was:&lt;500&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<400> but was:<500>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+]]></failure>
+  </testcase>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[русский@пьфш.ру, wTSskmO7LC, rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.202">
+    <failure message="expected:&lt;400&gt; but was:&lt;403&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<400> but was:<403>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+]]></failure>
+  </testcase>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[1Ab1654674442671@gmail.com, wTSskmO7LC, rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.343">
+    <failure message="expected:&lt;400&gt; but was:&lt;200&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<400> but was:<200>
+	at registration.RegisterNewUserParameterizedTest.checkRegisterNewUserWithIncorrectParameters(RegisterNewUserParameterizedTest.java:72)
+]]></failure>
+  </testcase>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[Ab1654674442671@gmail.com, , rSwrzyj QEeyQCOcut]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.199"/>
+  <testcase name="checkRegisterNewUserWithIncorrectParameters[Test Data for email, pas, name: &quot;[Ab1654674442671@gmail.com, wTSskmO7LC, ]&quot;]" classname="registration.RegisterNewUserParameterizedTest" time="0.208"/>
+</testsuite>
